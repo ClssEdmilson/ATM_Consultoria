@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 
 import com.clssed.atm_consultoria.R;
 
+import mehdi.sakout.aboutpage.AboutPage;
+import mehdi.sakout.aboutpage.Element;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link sobreFragment#newInstance} factory method to
@@ -61,6 +64,23 @@ public class sobreFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sobre, container, false);
+        //return inflater.inflate(R.layout.fragment_sobre, container, false);
+
+        String descricao = "Este app foi desenvolvido por Edmilson Santos, engenheiro eletrônico e desenvolvedor " +
+                "mobile com conhecimentos em Java, Kotlin, React-Native e flutter";
+
+        Element versão = new Element();
+        versão.setTitle("Versão 1.0");
+
+        return new AboutPage(getContext())
+                .setImage(R.drawable.logo)
+                .setDescription(descricao)
+                .addGroup("Entre em contato:")
+                .addEmail("edmilsonclss@gmail.com", "Envie um e-mail para o desenvolvedor deste App!")
+                .addGroup("Redes sociais")
+                .addGitHub("ClssEdmilson","Visite o GitHub do desenvolvedor deste App!")
+                .addWebsite("https://www.linkedin.com/in/edmilsonclss/", "Visite o LinkedIn do desenvolvedor deste App!")
+                .addItem(versão)
+                .create();
     }
 }
